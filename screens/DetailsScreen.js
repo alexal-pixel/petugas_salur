@@ -39,10 +39,10 @@ const DetailsScreen = () => {
         navigation.navigate('Perwakilan', { id: item });
     };
     const handlePressPengganti = (item) => {
-        navigation.navigate('Perwakilan', { id: item });
+        navigation.navigate('Pergantian', { id: item });
     };
-    const foto = (item) => {
-        navigation.navigate('Perwakilan', { id: item });
+    const handlePressPenyerahan = (item) => {
+        navigation.navigate('Penyerahan', { id: item });
     };
 
     return (
@@ -104,10 +104,10 @@ const DetailsScreen = () => {
                         <Button mode="contained" style={styles.button} onPress={handlePressPerwakilan}>
                             Perwakilan
                         </Button>
-                        <Button mode="contained" style={styles.button}>
+                        <Button mode="contained" style={styles.button} onPress={handlePressPengganti}>
                             Pengganti
                         </Button>
-                        <Button mode="contained" style={styles.button}>
+                        <Button mode="contained" style={styles.button} onPress={handlePressPenyerahan}>
                             Foto
                         </Button>
                     </View>

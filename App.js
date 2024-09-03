@@ -7,6 +7,9 @@ import DashboardScreen from './screens/DashboardScreen';
 import DetailScreen from './screens/DetailScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import PerwakilanScreen from './screens/perwakilanScreen';
+import PergantianScreen from './screens/PergantianScreen';
+import PenyerahanScreen from './screens/PenyerahanScreen';
+import RiwayatScreen from './screens/RiwayatScreen';
 
 
 const Stack = createStackNavigator();
@@ -43,6 +46,21 @@ export default function App() {
         <Stack.Screen
           name="Perwakilan"
           component={PerwakilanScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Pergantian"
+          component={PergantianScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Penyerahan"
+          component={PenyerahanScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Riwayat"
+          component={RiwayatScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

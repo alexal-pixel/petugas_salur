@@ -22,7 +22,7 @@ const backgroundImage = require('../assets/user.png');
 //     />
 // ));
 
-const PerwakilanScreen = () => {
+const PernyerahanScreen = () => {
     const [imageUri1, setImageUri1] = useState(null);
     const [imageUri2, setImageUri2] = useState(null);
     const [locationName, setLocationName] = useState({
@@ -197,7 +197,7 @@ const PerwakilanScreen = () => {
             </Card>
 
             {/* <View style={styles.container2}> */}
-            <Text style={styles.textHeader}>Data KPM Perwakilan</Text>
+            <Text style={styles.textHeader}>Penyerahan KPM</Text>
             <ScrollView contentContainerStyle={styles.containerKpm}>
                 <TextInput
                     label="Cucu Aminah"
@@ -232,18 +232,6 @@ const PerwakilanScreen = () => {
                 <TextInput
                     label="Jawa Barat"
                     readOnly
-                    style={styles.input}
-                />
-                <TextInput
-                    label="Nama KPM Perwakilan"
-                    style={styles.input}
-                />
-                <TextInput
-                    label="No Telepon KPM Perwakilan"
-                    style={styles.input}
-                />
-                <TextInput
-                    label="No NIK KPM Perwakilan"
                     style={styles.input}
                 />
                 {imageUri1 && (
@@ -440,4 +428,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default PerwakilanScreen;
+export default PernyerahanScreen;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, memo } from 'react';
-import { View, Button, Image, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
-import { Card, Avatar, Text, List } from 'react-native-paper';
+import { View, Image, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity, ScrollView, } from 'react-native';
+import { TextInput, Card, Avatar, Text, List, Button } from 'react-native-paper';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -18,9 +18,23 @@ const ListItem = memo(({ item, onPress }) => (
     />
 ));
 
-const DashboardScreen = () => {
+const RiwayatScreen = () => {
+    const data = [
+        { id: '1', title: 'Item 1' },
+        { id: '2', title: 'Item 2' },
+        { id: '3', title: 'Item 3' },
+        { id: '1', title: 'Item 1' },
+        { id: '2', title: 'Item 2' },
+        { id: '3', title: 'Item 3' },
+        { id: '3', title: 'Item 3' },
+        { id: '3', title: 'Item 3' },
+        { id: '3', title: 'Item 3' },
+        { id: '3', title: 'Item 3' },
+        { id: '3', title: 'Item 3' },
+        { id: '3', title: 'Item 3' },
+    ];
     const navigation = useNavigation();
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     useEffect(() => {
@@ -34,13 +48,6 @@ const DashboardScreen = () => {
                 setLoading(false);
             });
     }, []);
-
-    const handlePressPenyaluran = (item) => {
-        navigation.navigate('Detail', { id: item });
-    };
-    const handlePressRiwayat = (item) => {
-        navigation.navigate('Riwayat', { id: item });
-    };
 
     return (
         <View style={styles.container}>
@@ -59,56 +66,19 @@ const DashboardScreen = () => {
                     </Card.Content>
                 </Card>
             )}
-            <View style={styles.container}>
-                <View style={styles.containerHeader}>
-                    <Text style={styles.textHeader}>Selamat Datang di SIMBA 88</Text>
-                    <Text >SIMBA 88 (Sistem Informasi Manajemen Bantuan Pangan) merupakan aplikasi yang dikembangkan oleh PT. Delapan Delapan Logistics sebagai intrumen penunjang distribusi bantuan pangan.</Text>
-                </View>
-                {/* <Card style={styles.card1}>
-                    <Card.Content>
-                        
-                    </Card.Content>
-                </Card> */}
-            </View>
-            <View style={styles.container}>
-                <TouchableOpacity
-                    onPress={handlePressPenyaluran} // Ganti dengan nama halaman tujuan
-                    style={styles.cardMenu1}
-                >
-                    <Card>
-                        <Card.Content>
-                            <View>
-                                <Image
-                                    source={require('../assets/distribusi.jpg')}
-                                    style={styles.imageHeader}
-                                    resizeMode="cover"
-                                />
-                                <Text style={styles.textHeader}>Penyaluran Bantuan Pangan</Text>
-                                <Text>Arahkan Scanner QR Code Ke QR Code yang tersedia dilembar DTT, Kemudian Ambil Foto KPM sesuai dengan data KPM.</Text>
-                            </View>
-                        </Card.Content>
-                    </Card>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.container}>
-                <TouchableOpacity
-                    onPress={handlePressRiwayat}
-                    style={styles.cardMenu2}
-                >
-                    <Card>
-                        <Card.Content>
-                            <View>
-                                <Image
-                                    source={require('../assets/history.jpg')}
-                                    style={styles.imageHeader}
-                                />
-                                <Text style={styles.textHeader}>Riwayat Penyaluran Bantuan Pangan</Text>
-                                <Text >Klik Data KPM untuk melihat riwayat penyaluran bantuan pangan untuk memvalidasi penyaluran sudah sesuai dengan data KPM.</Text>
-                            </View>
-                        </Card.Content>
-                    </Card>
-                </TouchableOpacity>
-            </View>
+            <Text style={styles.header}>Riwayat Penyaluran</Text>
+            <ScrollView style={styles.containerScrollView}>
+                <FlatList
+                    style={styles.flatList}
+                    data={data}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({ item }) => (
+                        <View style={styles.item}>
+                            <Text>{item.title}</Text>
+                        </View>
+                    )}
+                />
+            </ScrollView>
         </View >
     );
 };
@@ -122,8 +92,28 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 0,
-        paddingBottom: 0,
+        paddingBottom: 10,
         justifyContent: 'flex-start',
+        backgroundColor: 'rgba(239,209,177,0.6)',
+    },
+    containerScrollView: {
+        width: '100%',
+        paddingHorizontal: 20,
+        paddingBottom: 20,
+    },
+    flatList: {
+        paddingBottom: 20,
+    },
+    header: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        marginTop: 20,
+        marginHorizontal: 20,
+    },
+    item: {
+        padding: 20,
+        marginTop: 20,
         backgroundColor: 'rgba(239,209,177,0.6)',
     },
     card: {
@@ -176,28 +166,43 @@ const styles = StyleSheet.create({
     containerHeader: {
         marginHorizontal: 20,
         marginTop: 20,
-        marginBottom: 10,
     },
     textHeader: {
         fontSize: 16,
         fontWeight: 'bold',
+        marginBottom: 10,
     },
     imageHeader: {
-        width: '100%', // Sesuaikan dengan kebutuhan
-        height: 100, // Atur tinggi sesuai kebutuhan
-        marginBottom: 10, // Jarak antara gambar dan teks di bawahnya
+        width: '100%',
+        height: 100,
+        marginBottom: 10,
     },
     cardMenu1: {
         height: 230,
         marginHorizontal: 10,
-        marginTop: -80,
+        marginTop: -90,
     },
     cardMenu2: {
         height: 230,
         marginHorizontal: 10,
         marginTop: -50,
+    },
+    input: {
+        marginVertical: 5,
+        height: 40,
+        backgroundColor: 'transparent',
+    },
+    buttonContainer: {
+        marginTop: 20,
+        flexDirection: 'col',
+        justifyContent: 'space-between',
+        width: '100%',
+    },
+    button: {
+        width: '100%',
+        marginVertical: 10,
     }
 
 });
 
-export default DashboardScreen;
+export default RiwayatScreen;

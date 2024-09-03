@@ -197,53 +197,34 @@ const PerwakilanScreen = () => {
             </Card>
 
             {/* <View style={styles.container2}> */}
-            <Text style={styles.textHeader}>Data KPM Perwakilan</Text>
+            <Text style={styles.textHeader}>Data KPM Pengganti</Text>
             <ScrollView contentContainerStyle={styles.containerKpm}>
                 <TextInput
-                    label="Cucu Aminah"
-                    readOnly
+                    label="Nama KPM Pengganti"
                     style={styles.input}
                 />
                 <TextInput
-                    label="318824010006584"
-                    readOnly
+                    label="NIK KPM Pengganti"
                     style={styles.input}
                 />
                 <TextInput
-                    label="Jl. Yos Sudarso Rt.001 Rw.002"
-                    readOnly
+                    label="Alamat KPM Pengganti"
                     style={styles.input}
                 />
                 <TextInput
-                    label="Desa Hegarmanah"
-                    readOnly
+                    label="Desa KPM Pengganti"
                     style={styles.input}
                 />
                 <TextInput
-                    label="Kec. Bojongpicung"
-                    readOnly
+                    label="Kecamatan KPM Pengganti"
                     style={styles.input}
                 />
                 <TextInput
-                    label="Kab. Cianjur"
-                    readOnly
+                    label="Kabupaten KPM Pengganti"
                     style={styles.input}
                 />
                 <TextInput
-                    label="Jawa Barat"
-                    readOnly
-                    style={styles.input}
-                />
-                <TextInput
-                    label="Nama KPM Perwakilan"
-                    style={styles.input}
-                />
-                <TextInput
-                    label="No Telepon KPM Perwakilan"
-                    style={styles.input}
-                />
-                <TextInput
-                    label="No NIK KPM Perwakilan"
+                    label="Provinsi KPM Pengganti"
                     style={styles.input}
                 />
                 {imageUri1 && (
