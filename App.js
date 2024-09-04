@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { LogBox } from 'react-native';
 import SplashScreen from './screens/SplashScreen';
 import LoginScreen from './screens/LoginScreen';
 import DashboardScreen from './screens/DashboardScreen';
@@ -15,6 +16,7 @@ import RiwayatScreen from './screens/RiwayatScreen';
 const Stack = createStackNavigator();
 
 export default function App() {
+  LogBox.ignoreAllLogs(true);
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash">

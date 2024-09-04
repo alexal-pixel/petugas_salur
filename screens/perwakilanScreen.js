@@ -396,8 +396,6 @@ const styles = StyleSheet.create({
     },
     containerKpm: {
         flexGrow: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
         width: '100%',
         paddingHorizontal: 20,
         paddingBottom: 20,

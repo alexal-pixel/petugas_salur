@@ -7,47 +7,16 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const backgroundImage = require('../assets/user.png');
 
-const ListItem = memo(({ item, onPress }) => (
-    <List.Item
-        title={item.nama_driver + " (" + item.nomor_mobil + ")"}
-        description={"Tanggal " + item.tanggal_muat + " Total Muatan " + item.total + " Kg"}
-        left={props => <List.Icon {...props} icon="folder" />}
-        descriptionStyle={styles.subjudul}
-        titleStyle={styles.judulnya}
-        onPress={() => onPress(item)}
-    />
-));
-
 const RiwayatScreen = () => {
     const data = [
         { id: '1', title: 'Item 1' },
         { id: '2', title: 'Item 2' },
-        { id: '3', title: 'Item 3' },
-        { id: '1', title: 'Item 1' },
-        { id: '2', title: 'Item 2' },
-        { id: '3', title: 'Item 3' },
-        { id: '3', title: 'Item 3' },
-        { id: '3', title: 'Item 3' },
-        { id: '3', title: 'Item 3' },
-        { id: '3', title: 'Item 3' },
-        { id: '3', title: 'Item 3' },
         { id: '3', title: 'Item 3' },
     ];
     const navigation = useNavigation();
     // const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    useEffect(() => {
-        axios.get('https://delapandelapanlogistics.com/api/lo/6/filterchecker/2024-06-01/2024-06-30/46')
-            .then(response => {
-                setData(response.data.data);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError('Failed to fetch data');
-                setLoading(false);
-            });
-    }, []);
 
     return (
         <View style={styles.container}>
